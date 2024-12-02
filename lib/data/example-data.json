@@ -1,0 +1,242 @@
+[
+  {
+    "invoice_id": "INV001",
+    "date": "2024-08-24",
+    "amount_purchase": 250.75,
+    "payment_status": "Paid",
+    "payment_method": "Credit Card",
+    "token_amount": 25
+  },
+  {
+    "invoice_id": "INV002",
+    "date": "2024-08-22",
+    "amount_purchase": 150.50,
+    "payment_status": "Pending",
+    "payment_method": "Bank Transfer",
+    "token_amount": 15
+  },
+  {
+    "invoice_id": "INV003",
+    "date": "2024-08-20",
+    "amount_purchase": 350.00,
+    "payment_status": "Paid",
+    "payment_method": "PayPal",
+    "token_amount": 35
+  },
+  {
+    "invoice_id": "INV004",
+    "date": "2024-08-18",
+    "amount_purchase": 75.00,
+    "payment_status": "Failed",
+    "payment_method": "Debit Card",
+    "token_amount": 7.5
+  },
+  {
+    "invoice_id": "INV005",
+    "date": "2024-08-15",
+    "amount_purchase": 500.25,
+    "payment_status": "Paid",
+    "payment_method": "Credit Card",
+    "token_amount": 50
+  },
+  {
+    "invoice_id": "INV006",
+    "date": "2024-08-13",
+    "amount_purchase": 200.00,
+    "payment_status": "Pending",
+    "payment_method": "Bank Transfer",
+    "token_amount": 20
+  },
+  {
+    "invoice_id": "INV007",
+    "date": "2024-08-10",
+    "amount_purchase": 320.00,
+    "payment_status": "Paid",
+    "payment_method": "PayPal",
+    "token_amount": 32
+  },
+  {
+    "invoice_id": "INV008",
+    "date": "2024-08-09",
+    "amount_purchase": 100.00,
+    "payment_status": "Failed",
+    "payment_method": "Debit Card",
+    "token_amount": 10
+  },
+  {
+    "invoice_id": "INV009",
+    "date": "2024-08-07",
+    "amount_purchase": 275.75,
+    "payment_status": "Paid",
+    "payment_method": "Credit Card",
+    "token_amount": 27.5
+  },
+  {
+    "invoice_id": "INV010",
+    "date": "2024-08-05",
+    "amount_purchase": 400.00,
+    "payment_status": "Pending",
+    "payment_method": "Bank Transfer",
+    "token_amount": 40
+  },
+  {
+    "invoice_id": "INV011",
+    "date": "2024-08-04",
+    "amount_purchase": 150.00,
+    "payment_status": "Paid",
+    "payment_method": "PayPal",
+    "token_amount": 15
+  },
+  {
+    "invoice_id": "INV012",
+    "date": "2024-08-02",
+    "amount_purchase": 50.00,
+    "payment_status": "Failed",
+    "payment_method": "Debit Card",
+    "token_amount": 5
+  },
+  {
+    "invoice_id": "INV013",
+    "date": "2024-07-30",
+    "amount_purchase": 600.00,
+    "payment_status": "Paid",
+    "payment_method": "Credit Card",
+    "token_amount": 60
+  },
+  {
+    "invoice_id": "INV014",
+    "date": "2024-07-28",
+    "amount_purchase": 250.00,
+    "payment_status": "Pending",
+    "payment_method": "Bank Transfer",
+    "token_amount": 25
+  },
+  {
+    "invoice_id": "INV015",
+    "date": "2024-07-25",
+    "amount_purchase": 320.75,
+    "payment_status": "Paid",
+    "payment_method": "PayPal",
+    "token_amount": 32
+  },
+  {
+    "invoice_id": "INV016",
+    "date": "2024-07-23",
+    "amount_purchase": 85.00,
+    "payment_status": "Failed",
+    "payment_method": "Debit Card",
+    "token_amount": 8.5
+  },
+  {
+    "invoice_id": "INV017",
+    "date": "2024-07-20",
+    "amount_purchase": 275.25,
+    "payment_status": "Paid",
+    "payment_method": "Credit Card",
+    "token_amount": 27.5
+  },
+  {
+    "invoice_id": "INV018",
+    "date": "2024-07-18",
+    "amount_purchase": 450.00,
+    "payment_status": "Pending",
+    "payment_method": "Bank Transfer",
+    "token_amount": 45
+  },
+  {
+    "invoice_id": "INV019",
+    "date": "2024-07-15",
+    "amount_purchase": 90.00,
+    "payment_status": "Paid",
+    "payment_method": "PayPal",
+    "token_amount": 9
+  },
+  {
+    "invoice_id": "INV020",
+    "date": "2024-07-12",
+    "amount_purchase": 40.00,
+    "payment_status": "Failed",
+    "payment_method": "Debit Card",
+    "token_amount": 4
+  },
+  {
+    "invoice_id": "INV021",
+    "date": "2024-07-10",
+    "amount_purchase": 575.75,
+    "payment_status": "Paid",
+    "payment_method": "Credit Card",
+    "token_amount": 57.5
+  },
+  {
+    "invoice_id": "INV022",
+    "date": "2024-07-07",
+    "amount_purchase": 300.00,
+    "payment_status": "Pending",
+    "payment_method": "Bank Transfer",
+    "token_amount": 30
+  },
+  {
+    "invoice_id": "INV023",
+    "date": "2024-07-05",
+    "amount_purchase": 120.00,
+    "payment_status": "Paid",
+    "payment_method": "PayPal",
+    "token_amount": 12
+  },
+  {
+    "invoice_id": "INV024",
+    "date": "2024-07-02",
+    "amount_purchase": 30.00,
+    "payment_status": "Failed",
+    "payment_method": "Debit Card",
+    "token_amount": 3
+  },
+  {
+    "invoice_id": "INV025",
+    "date": "2024-06-30",
+    "amount_purchase": 625.00,
+    "payment_status": "Paid",
+    "payment_method": "Credit Card",
+    "token_amount": 62.5
+  },
+  {
+    "invoice_id": "INV026",
+    "date": "2024-06-28",
+    "amount_purchase": 350.00,
+    "payment_status": "Pending",
+    "payment_method": "Bank Transfer",
+    "token_amount": 35
+  },
+  {
+    "invoice_id": "INV027",
+    "date": "2024-06-25",
+    "amount_purchase": 240.00,
+    "payment_status": "Paid",
+    "payment_method": "PayPal",
+    "token_amount": 24
+  },
+  {
+    "invoice_id": "INV028",
+    "date": "2024-06-22",
+    "amount_purchase": 70.00,
+    "payment_status": "Failed",
+    "payment_method": "Debit Card",
+    "token_amount": 7
+  },
+  {
+    "invoice_id": "INV029",
+    "date": "2024-06-20",
+    "amount_purchase": 680.75,
+    "payment_status": "Paid",
+    "payment_method": "Credit Card",
+    "token_amount": 68
+  },
+  {
+    "invoice_id": "INV030",
+    "date": "2024-06-18",
+    "amount_purchase": 400.00,
+    "payment_status": "Pending",
+    "payment_method": "Bank Transfer",
+    "token_amount": 40
+  }
+]

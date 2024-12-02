@@ -1,0 +1,57 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Transaction {
+  id             Int      @id @default(autoincrement())
+  userId         String
+  date           DateTime @default(now())
+  tokenAmount    Int
+  amountPurchase Int
+  paymentId      String   @unique
+  paymentStatus  String
+  paymentMethod  String
+  referenceId    String   @unique
+}
+
+model Analysis {
+  id               Int      @id @default(autoincrement())
+  userId           String
+  date             DateTime @default(now())
+  educationTarget  String[]
+  gpaTarget        String[]
+  jobTarget        String[]
+  yearsTarget      String[]
+  experienceTarget String[]
+  skillTarget      String[]
+  softSkillTarget  String[]
+  languageTarget   String[]
+  cvs              CV[]
+}
+
+model CV {
+  id               Int      @id @default(autoincrement())
+  analysisId       Int
+  fileName         String
+  fileURL          String
+  educationRating  Decimal
+  gpaRating        Decimal
+  jobRating        Decimal
+  yearsRating      Decimal
+  experienceRating Decimal
+  skillRating      Decimal
+  softSkillRating  Decimal
+  languageRating   Decimal
+  analysis         Analysis @relation(fields: [analysisId], references: [id])
+}
+
+model Token {
+  userId      String @id @unique
+  tokenAmount Int
+}
