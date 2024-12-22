@@ -64,7 +64,7 @@ export default function AnalysisHistoryPage() {
               Analyze Results
             </h2>
             <p className="text-muted-foreground">
-              Here's a list of all your analyze results.
+              Here&apos;s a list of all your analyze results.
             </p>
           </div>
         </div>
