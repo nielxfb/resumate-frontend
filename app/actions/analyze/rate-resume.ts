@@ -7,6 +7,7 @@ import {
 } from "@/lib/data/analyze/analyze-data";
 import { auth } from "@clerk/nextjs/server";
 import { PrismaClient } from "@prisma/client";
+import axios from "axios";
 
 interface RateResumeProps {
   jobText: string[];
@@ -71,50 +72,52 @@ export default async function rateResumeAction({
 
     const analyzeTransactionBody = {
       userId: userId,
-      educationTarget: jobFeatures.educations,
-      gpaTarget: jobFeatures.gpa,
-      jobTarget: jobFeatures.job_titles,
-      yearsTarget: jobFeatures.years_experiences.flatMap((obj) => obj.text),
-      experienceTarget: jobFeatures.experiences,
-      skillTarget: jobFeatures.skills,
-      softSkillTarget: jobFeatures.soft_skills,
-      languageTarget: jobFeatures.languages,
+      educationTarget: jobFeatures.educations.join(","),
+      gpaTarget: jobFeatures.gpa.join(","),
+      jobTarget: jobFeatures.job_titles.join(","),
+      yearsTarget: jobFeatures.years_experiences.map((obj) => obj.text).join(", "),
+      experienceTarget: jobFeatures.experiences.join(","),
+      skillTarget: jobFeatures.skills.join(","),
+      softSkillTarget: jobFeatures.soft_skills.join(","),
+      languageTarget: jobFeatures.languages.join(","),
+      date: new Date().toISOString().split('T')[0], // Format date as "yyyy-mm-dd"
       cvs: transactionResumeData.map((cv: TransactionAnalyzeResume) => ({
-        fileName: cv.fileName,
-        fileURL: cv.fileURL,
-        educationRating: cv.educationRating,
-        gpaRating: cv.gpaRating,
-        jobRating: cv.jobRating,
-        yearsRating: cv.yearsRating,
-        experienceRating: cv.experienceRating,
-        skillRating: cv.skillRating,
-        softSkillRating: cv.softSkillRating,
-        languageRating: cv.languageRating,
+      fileName: cv.fileName,
+      fileURL: cv.fileURL,
+      educationRating: cv.educationRating,
+      gpaRating: cv.gpaRating,
+      jobRating: cv.jobRating,
+      yearsRating: cv.yearsRating,
+      experienceRating: cv.experienceRating,
+      skillRating: cv.skillRating,
+      softSkillRating: cv.softSkillRating,
+      languageRating: cv.languageRating,
       })),
     };
 
     // Pass the `analyzeTransactionBody` directly to Prisma `create` method
     try {
-        const analysis = await prisma.analysis.create({
-          data: {
-            userId: analyzeTransactionBody.userId,
-            date: new Date(),
-            educationTarget: analyzeTransactionBody.educationTarget,
-            gpaTarget: analyzeTransactionBody.gpaTarget,
-            jobTarget: analyzeTransactionBody.jobTarget,
-            yearsTarget: analyzeTransactionBody.yearsTarget,
-            experienceTarget: analyzeTransactionBody.experienceTarget,
-            skillTarget: analyzeTransactionBody.skillTarget,
-            softSkillTarget: analyzeTransactionBody.softSkillTarget,
-            languageTarget: analyzeTransactionBody.languageTarget,
-            cvs: {
-              create: analyzeTransactionBody.cvs,
-            },
-          },
-          include: {
-            cvs: true,
-          },
-        });
+      await axios.post(`${process.env.BACKEND_URL}/analysis/save-result`, analyzeTransactionBody);
+        // const analysis = await prisma.analysis.create({
+        //   data: {
+        //     userId: analyzeTransactionBody.userId,
+        //     date: new Date(),
+        //     educationTarget: analyzeTransactionBody.educationTarget,
+        //     gpaTarget: analyzeTransactionBody.gpaTarget,
+        //     jobTarget: analyzeTransactionBody.jobTarget,
+        //     yearsTarget: analyzeTransactionBody.yearsTarget,
+        //     experienceTarget: analyzeTransactionBody.experienceTarget,
+        //     skillTarget: analyzeTransactionBody.skillTarget,
+        //     softSkillTarget: analyzeTransactionBody.softSkillTarget,
+        //     languageTarget: analyzeTransactionBody.languageTarget,
+        //     cvs: {
+        //       create: analyzeTransactionBody.cvs,
+        //     },
+        //   },
+        //   include: {
+        //     cvs: true,
+        //   },
+        // });
 
     } catch (error) {
       console.error("Error creating analysis with CVs:", error);
