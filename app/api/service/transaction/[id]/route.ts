@@ -40,16 +40,16 @@ export async function PUT(req: Request, context: any) {
       return NextResponse.json({ error: 'Trsanction ID is required' }, { status: 400 });
     }
 
-    const updatedTransaction = await prisma.transaction.updateMany({
-      where: {
-        id: String(trasanctionId),
-      },
-      data: {
-        paymentStatus: input.status.toString(),
-      },
-    });
+    // const updatedTransaction = await prisma.transaction.updateMany({
+    //   where: {
+    //     id: String(trasanctionId),
+    //   },
+    //   data: {
+    //     paymentStatus: input.status.toString(),
+    //   },
+    // });
 
-    return NextResponse.json(updatedTransaction, { status: 200 });
+    return NextResponse.json({}, { status: 200 });
   } catch (error) {
     console.error('Error updating transaction:', error);
     return NextResponse.json({ error: 'Failed to update transaction' }, { status: 500 });

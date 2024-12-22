@@ -12,56 +12,56 @@ interface NavbarProps {
 }
 
 export function Navbar({ title }: NavbarProps) {
-  const { userId } = useAuth();
-  const [isFetching, setIsFetching] = useState(true);
-  const [tokens, setTokens] = useState(0);
+  // const { userId } = useAuth();
+  // const [isFetching, setIsFetching] = useState(true);
+  // const [tokens, setTokens] = useState(0);
 
-  useEffect(() => {
-    const fetchTransaction = async () => {
-      try {
-        // Fetch the token data
-        let response = await fetch(`/api/service/token/${userId}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+  // useEffect(() => {
+  //   const fetchTransaction = async () => {
+  //     try {
+  //       // Fetch the token data
+  //       let response = await fetch(`/api/service/token/${userId}`, {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       });
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch token");
-        }
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch token");
+  //       }
 
-        const data = await response.json();
+  //       const data = await response.json();
 
-        if (data.length === 0) {
-          // If no data, create it
-          response = await fetch(`/api/service/token/${userId}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
+  //       if (data.length === 0) {
+  //         // If no data, create it
+  //         response = await fetch(`/api/service/token/${userId}`, {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //         });
 
-          if (!response.ok) {
-            throw new Error("Failed to create token");
-          }
+  //         if (!response.ok) {
+  //           throw new Error("Failed to create token");
+  //         }
 
-          // Get the result after creation
-          const createdData = await response.json();
-          setTokens(createdData.tokenAmount);
-        } else {
-          // If data exists, set the token
-          setTokens(data[0].tokenAmount);
-        }
-      } catch (error) {
-        console.error("Error fetching or creating token:", error);
-      } finally {
-        setIsFetching(false);
-      }
-    };
+  //         // Get the result after creation
+  //         const createdData = await response.json();
+  //         setTokens(createdData.tokenAmount);
+  //       } else {
+  //         // If data exists, set the token
+  //         setTokens(data[0].tokenAmount);
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching or creating token:", error);
+  //     } finally {
+  //       setIsFetching(false);
+  //     }
+  //   };
 
-    fetchTransaction();
-  }, [userId]);
+  //   fetchTransaction();
+  // }, [userId]);
 
   return (
     <header className="sticky top-0 z-10 w-full bg-background/95 shadow backdrop-blur supports-[backdrop-filter]:bg-background/60 dark:shadow-secondary">

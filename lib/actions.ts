@@ -88,17 +88,17 @@ export async function createEWalletPayment({
   const qrString = response?.actions && (response.actions[1]?.qrCode as string);
 
   try {
-    await prisma.transaction.create({
-      data: {
-        userId: userId,
-        tokenAmount: amount / 2500,
-        amountPurchase: amount,
-        paymentId: response.id,
-        paymentMethod: eWalletType,
-        paymentStatus: "PENDING",
-        referenceId: referenceId,
-      },
-    });
+    // await prisma.transaction.create({
+    //   data: {
+    //     userId: userId,
+    //     tokenAmount: amount / 2500,
+    //     amountPurchase: amount,
+    //     paymentId: response.id,
+    //     paymentMethod: eWalletType,
+    //     paymentStatus: "PENDING",
+    //     referenceId: referenceId,
+    //   },
+    // });
   } catch (error) {
     console.error("Error inserting transaction:", error);
   } finally {

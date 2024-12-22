@@ -21,37 +21,37 @@ export async function POST(req: Request) {
     try {
       const paymentRequestId = payload.data.payment_request_id;
 
-      const transaction = await prisma.transaction.findUnique({
-        where: {
-          paymentId: paymentRequestId,
-        },
-      });
+      // const transaction = await prisma.transaction.findUnique({
+      //   where: {
+      //     paymentId: paymentRequestId,
+      //   },
+      // });
 
-      console.log(transaction);
+      // console.log(transaction);
 
-      const token = await prisma.token.findUnique({
-        where: {
-          userId: transaction!.userId,
-        },
-      });
+      // const token = await prisma.token.findUnique({
+      //   where: {
+      //     userId: transaction!.userId,
+      //   },
+      // });
 
-      await prisma.transaction.update({
-        where: {
-          paymentId: paymentRequestId,
-        },
-        data: {
-          paymentStatus: "SUCCEEDED",
-        },
-      });
+      // await prisma.transaction.update({
+      //   where: {
+      //     paymentId: paymentRequestId,
+      //   },
+      //   data: {
+      //     paymentStatus: "SUCCEEDED",
+      //   },
+      // });
 
-      await prisma.token.update({
-        where: {
-          userId: transaction!.userId,
-        },
-        data: {
-          tokenAmount: token!.tokenAmount + transaction!.tokenAmount,
-        },
-      });
+      // await prisma.token.update({
+      //   where: {
+      //     userId: transaction!.userId,
+      //   },
+      //   data: {
+      //     tokenAmount: token!.tokenAmount + transaction!.tokenAmount,
+      //   },
+      // });
     } catch (error) {
       console.error("Error updating transaction:", error);
     } finally {

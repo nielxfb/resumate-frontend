@@ -20,13 +20,13 @@ export async function GET(request: Request, context: any) {
       );
     }
 
-    const token = await prisma.token.findMany({
-      where: {
-        userId: String(userId),
-      },
-    });
+    // const token = await prisma.token.findMany({
+    //   where: {
+    //     userId: String(userId),
+    //   },
+    // });
 
-    return NextResponse.json(token, { status: 200 });
+    return NextResponse.json({}, { status: 200 });
   } catch (error) {
     console.error("Error retrieving token:", error);
     return NextResponse.json(
@@ -48,13 +48,13 @@ export async function POST(req: Request) {
   }
 
   try {
-    const newToken = await prisma.token.create({
-      data: {
-        userId: userId,
-        tokenAmount: Number(0),
-      },
-    });
-    return NextResponse.json(newToken, { status: 200 });
+    // const newToken = await prisma.token.create({
+    //   data: {
+    //     userId: userId,
+    //     tokenAmount: Number(0),
+    //   },
+    // });
+    return NextResponse.json({}, { status: 200 });
   } catch (error) {
     console.error("Error inserting token:", error);
     return NextResponse.json(
@@ -81,16 +81,16 @@ export async function PUT(req: Request, context: any) {
       );
     }
 
-    const updatedToken = await prisma.token.updateMany({
-      where: {
-        userId: String(userId),
-      },
-      data: {
-        tokenAmount: Number(input.tokenAmount),
-      },
-    });
+    // const updatedToken = await prisma.token.updateMany({
+    //   where: {
+    //     userId: String(userId),
+    //   },
+    //   data: {
+    //     tokenAmount: Number(input.tokenAmount),
+    //   },
+    // });
 
-    return NextResponse.json(updatedToken, { status: 200 });
+    return NextResponse.json({}, { status: 200 });
   } catch (error) {
     console.error("Error updating token:", error);
     return NextResponse.json(

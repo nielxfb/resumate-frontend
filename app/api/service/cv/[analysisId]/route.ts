@@ -12,13 +12,13 @@ export async function GET(req: NextApiRequest, context:any) {
   }
 
     try {
-      const cvs = await prisma.cV.findMany({
-        where: {
-          analysisId: Number(analysisId),
-        },
-      });
+      // const cvs = await prisma.cV.findMany({
+      //   where: {
+      //     analysisId: Number(analysisId),
+      //   },
+      // });
 
-      return NextResponse.json(cvs, { status: 200 });
+      return NextResponse.json([], { status: 200 });
     } catch (error) {
       console.error('Error retrieving CVs:', error);
       return NextResponse.json({ error: 'Failed to retrieve CVs' }, { status: 500 });
