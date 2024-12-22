@@ -17,7 +17,7 @@ export async function GET(request: Request, context:any) {
       //     cvs: true,
       //   },
       // });
-      const response = await axios.get(`${process.env.BACKEND_URL}/analysis/get-by-user-id?userId=${userId}`);
+      const response = await axios.post(`${process.env.BACKEND_URL}/analysis/get-by-user-id?userId=${userId}`);
       if (response.status !== 200) {
         return NextResponse.json({ error: 'Failed to retrieve analysis' }, { status: 500 });
       }

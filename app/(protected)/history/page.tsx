@@ -3,6 +3,7 @@
 import { ContentLayout } from "@/components/base/protected/content-layout";
 import { DataTable } from "@/components/pages/payment/data-table";
 import { result_columns } from "@/components/pages/result/result_columns";
+import { useAuth } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
 import { useEffect, useState } from "react";
 
@@ -15,10 +16,14 @@ interface TransactionData {
 
 export default function AnalysisHistoryPage() {
   const [result, setResult] = useState<TransactionData[]>();
+  const { userId } = useAuth();
+
   useEffect(() => {
     const fetchResults = async () => {
+      const url = `/api/service/analyze/${userId}/`;
+
       try {
-        const response = await fetch('/api/service/analyze/user123/', {
+        const response = await fetch(url, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
