@@ -61,25 +61,6 @@ export function getMenuList(pathname: string): Group[] {
       ],
     },
     {
-      groupLabel: "Payment & Tokens",
-      menus: [
-        {
-          href: "/tokens",
-          label: "Buy Tokens",
-          active: pathname.includes("/tokens"),
-          icon: Coins,
-          submenus: [],
-        },
-        {
-          href: "/payments",
-          label: "Payment History",
-          active: pathname.includes("/payments"),
-          icon: CreditCard,
-          submenus: [],
-        },
-      ],
-    },
-    {
       groupLabel: "Settings",
       menus: [
         {

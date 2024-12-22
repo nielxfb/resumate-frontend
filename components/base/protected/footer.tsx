@@ -11,7 +11,7 @@ export function Footer() {
             rel="noreferrer"
             className="font-medium underline underline-offset-4"
           >
-            SROOMY Team
+            RESUMATE Team
           </a>
           .
         </p>

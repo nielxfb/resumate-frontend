@@ -12,7 +12,7 @@ export default function Header() {
             className="flex select-none items-center gap-x-2 font-bold text-primary dark:text-primary-foreground"
           >
             <Icons.sroomarizer className="size-10 fill-primary dark:fill-primary-foreground" />
-            Sroomarizer
+            Resumate
           </Link>
         </div>
         <div className="flex items-center gap-x-4 text-sm font-medium">

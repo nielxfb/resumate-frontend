@@ -71,14 +71,6 @@ export function Navbar({ title }: NavbarProps) {
           <h1 className="font-bold">{title}</h1>
         </div>
         <div className="flex flex-1 items-center justify-end gap-x-6">
-          <div className="flex items-center gap-x-2 text-xs font-bold">
-            <Coins className="size-4" />
-            {isFetching ? (
-              <Icons.spinner className="size-4 animate-spin" />
-            ) : (
-              tokens
-            )}
-          </div>
           <ClerkLoaded>
             <UserButton
               userProfileUrl="/user-profile"

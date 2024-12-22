@@ -35,7 +35,7 @@ export function SheetMenu() {
             >
               <Icons.sroomarizer className="mr-1 size-10 h-6 w-6 fill-primary dark:fill-primary-foreground" />
               <SheetTitle className="text-lg font-bold text-primary dark:text-white">
-                Sroomarizer
+                Resumate
               </SheetTitle>
               <SheetDescription>
                 <VisuallyHidden.Root>AI Resume Analyzer</VisuallyHidden.Root>
@@ -44,7 +44,7 @@ export function SheetMenu() {
           </Button>
         </SheetHeader>
         <Menu isOpen />
-      </SheetContent>
+    </SheetContent>
     </Sheet>
   );
 }
