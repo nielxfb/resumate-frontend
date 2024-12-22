@@ -1,14 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextRequest, NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
-import { NextResponse } from 'next/server';
 import axios from 'axios';
 
-export async function GET(req: NextApiRequest, context:any) {
-  const {params} = context;
+export async function GET(req: NextRequest, context: any) {
+  const { params } = context;
   const analysisId = params.analysisId;
 
   if (!analysisId) {
-    console.log("tidak ada analysisId")
+    console.log("tidak ada analysisId");
     return NextResponse.json({ error: 'Analysis ID is required' }, { status: 400 });
   }
 
