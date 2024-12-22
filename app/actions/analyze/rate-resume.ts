@@ -72,14 +72,14 @@ export default async function rateResumeAction({
 
     const analyzeTransactionBody = {
       userId: userId,
-      educationTarget: jobFeatures.educations.join(","),
-      gpaTarget: jobFeatures.gpa.join(","),
-      jobTarget: jobFeatures.job_titles.join(","),
-      yearsTarget: jobFeatures.years_experiences.map((obj) => obj.text).join(", "),
-      experienceTarget: jobFeatures.experiences.join(","),
-      skillTarget: jobFeatures.skills.join(","),
-      softSkillTarget: jobFeatures.soft_skills.join(","),
-      languageTarget: jobFeatures.languages.join(","),
+      educationTarget: jobFeatures.educations.join(";"),
+      gpaTarget: jobFeatures.gpa.join(";"),
+      jobTarget: jobFeatures.job_titles.join(";"),
+      yearsTarget: jobFeatures.years_experiences.map((obj) => obj.text).join(";"),
+      experienceTarget: jobFeatures.experiences.join(";"),
+      skillTarget: jobFeatures.skills.join(";"),
+      softSkillTarget: jobFeatures.soft_skills.join(";"),
+      languageTarget: jobFeatures.languages.join(";"),
       date: new Date().toISOString().split('T')[0], // Format date as "yyyy-mm-dd"
       cvs: transactionResumeData.map((cv: TransactionAnalyzeResume) => ({
       fileName: cv.fileName,
