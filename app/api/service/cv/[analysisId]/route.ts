@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
+import axios from 'axios';
 
 export async function GET(req: NextApiRequest, context:any) {
   const {params} = context;
@@ -17,8 +18,12 @@ export async function GET(req: NextApiRequest, context:any) {
       //     analysisId: Number(analysisId),
       //   },
       // });
+      const response = await axios.post(`${process.env.BACKEND_URL}/cv/get-by-analysis-id?analysisId=${analysisId}`);
+      if (response.status !== 200) {
+        return NextResponse.json({ error: 'Failed to retrieve CVs' }, { status: 500 });
+      }
 
-      return NextResponse.json([], { status: 200 });
+      return NextResponse.json(response.data!, { status: 200 });
     } catch (error) {
       console.error('Error retrieving CVs:', error);
       return NextResponse.json({ error: 'Failed to retrieve CVs' }, { status: 500 });

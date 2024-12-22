@@ -4,13 +4,13 @@ import { ContentLayout } from "@/components/base/protected/content-layout";
 import { DataTable } from "@/components/pages/payment/data-table";
 import { result_columns } from "@/components/pages/result/result_columns";
 import { useAuth } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs/server";
 import { useEffect, useState } from "react";
 
 interface TransactionData {
   id: number;
   date: string;
   totalCVs: number;
+  cvs: number;
 }
 
 
@@ -47,7 +47,7 @@ export default function AnalysisHistoryPage() {
     };
   
     fetchResults();
-  }, []); 
+  }, [userId]); 
   
   useEffect(() => {
     console.log(result);
