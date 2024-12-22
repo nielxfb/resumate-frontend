@@ -5,10 +5,7 @@ import {
   PaymentRequestParameters,
   PaymentRequest as PaymentRequestModel,
 } from "xendit-node/payment_request/models";
-import { PrismaClient } from "@prisma/client";
 import { v4 as uuidv4 } from "uuid";
-
-const prisma = new PrismaClient();
 
 export async function createQrPayment({ amount }: { amount: number }) {
   const { PaymentRequest } = xenditClient;
@@ -87,23 +84,6 @@ export async function createEWalletPayment({
   const paymentUrl = response.actions && response.actions[0]?.url;
   const qrString = response?.actions && (response.actions[1]?.qrCode as string);
 
-  try {
-    // await prisma.transaction.create({
-    //   data: {
-    //     userId: userId,
-    //     tokenAmount: amount / 2500,
-    //     amountPurchase: amount,
-    //     paymentId: response.id,
-    //     paymentMethod: eWalletType,
-    //     paymentStatus: "PENDING",
-    //     referenceId: referenceId,
-    //   },
-    // });
-  } catch (error) {
-    console.error("Error inserting transaction:", error);
-  } finally {
-    await prisma.$disconnect();
-  }
 
   return {
     response,
@@ -118,13 +98,8 @@ export default async function getTransaction({
   referenceId: string;
 }) {
   try {
-    const transaction = await prisma.transaction.findUnique({
-      where: {
-        referenceId: referenceId,
-      },
-    });
 
-    return transaction;
+    return {};
   } catch (error) {
     console.error("Error fetching transaction:", error);
   }

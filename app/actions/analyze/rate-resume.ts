@@ -6,15 +6,12 @@ import {
   TransactionAnalyzeResume,
 } from "@/lib/data/analyze/analyze-data";
 import { auth } from "@clerk/nextjs/server";
-import { PrismaClient } from "@prisma/client";
 import axios from "axios";
 
 interface RateResumeProps {
   jobText: string[];
   resumeData: AnalyzeFileData[];
 }
-
-const prisma = new PrismaClient()
 
 export default async function rateResumeAction({
   jobText,
@@ -95,34 +92,10 @@ export default async function rateResumeAction({
       })),
     };
 
-    // Pass the `analyzeTransactionBody` directly to Prisma `create` method
     try {
       await axios.post(`${process.env.BACKEND_URL}/analysis/save-result`, analyzeTransactionBody);
-        // const analysis = await prisma.analysis.create({
-        //   data: {
-        //     userId: analyzeTransactionBody.userId,
-        //     date: new Date(),
-        //     educationTarget: analyzeTransactionBody.educationTarget,
-        //     gpaTarget: analyzeTransactionBody.gpaTarget,
-        //     jobTarget: analyzeTransactionBody.jobTarget,
-        //     yearsTarget: analyzeTransactionBody.yearsTarget,
-        //     experienceTarget: analyzeTransactionBody.experienceTarget,
-        //     skillTarget: analyzeTransactionBody.skillTarget,
-        //     softSkillTarget: analyzeTransactionBody.softSkillTarget,
-        //     languageTarget: analyzeTransactionBody.languageTarget,
-        //     cvs: {
-        //       create: analyzeTransactionBody.cvs,
-        //     },
-        //   },
-        //   include: {
-        //     cvs: true,
-        //   },
-        // });
-
     } catch (error) {
       console.error("Error creating analysis with CVs:", error);
-    } finally {
-      await prisma.$disconnect();
     }
 
     return data;

@@ -20,16 +20,24 @@ export const ourFileRouter = {
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.id };
-    })
-    .onUploadComplete(async ({ metadata, file }) => {
-      // This code RUNS ON YOUR SERVER after upload
-      console.log("Upload complete for userId:", metadata.userId);
-
-      console.log("file url", file.url);
-
-      // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
-      return { uploadedBy: metadata.userId };
-    }),
-} satisfies FileRouter;
+      })
+      .onUploadComplete(async ({ metadata, file }) => {
+        // This code RUNS ON YOUR SERVER after upload
+        console.log("Upload complete for userId:", metadata.userId);
+      
+        // Debugging: Log the entire file object to inspect its properties
+        console.log("file object:", file);
+      
+        // Check if the file object has the url property
+        if (file && file.url) {
+          console.log("file url", file.url);
+        } else {
+          console.error("File URL is missing or undefined");
+        }
+      
+        // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
+        return { uploadedBy: metadata.userId };
+      }),
+      } satisfies FileRouter;
 
 export type OurFileRouter = typeof ourFileRouter;
