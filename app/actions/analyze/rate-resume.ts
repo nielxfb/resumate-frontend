@@ -69,6 +69,16 @@ export default async function rateResumeAction({
 
     const analyzeTransactionBody = {
       userId: userId,
+      resumeFeatures: resumeFeatures.map((feature) => ({
+        educations: feature.educations.join(";"),
+        gpa: feature.gpa.join(";"),
+        jobTitles: feature.job_titles.join(";"),
+        yearsExperiences: feature.years_experiences.map((obj) => obj.text).join(";"),
+        experiences: feature.experiences.join(";"),
+        skills: feature.skills.join(";"),
+        softSkills: feature.soft_skills.join(";"),
+        languages: feature.languages.join(";"),
+      })),
       educationTarget: jobFeatures.educations.join(";"),
       gpaTarget: jobFeatures.gpa.join(";"),
       jobTarget: jobFeatures.job_titles.join(";"),
