@@ -13,7 +13,7 @@ interface TransactionData {
   cvs: number;
 }
 
-const loadingContainerStyle = {
+const loadingContainerStyle: React.CSSProperties = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -21,7 +21,7 @@ const loadingContainerStyle = {
   height: '100vh',
 };
 
-const spinnerStyle = {
+const spinnerStyle : React.CSSProperties= {
   border: '4px solid #f3f3f3',
   borderTop: '4px solid #3498db', 
   borderRadius: '50%',

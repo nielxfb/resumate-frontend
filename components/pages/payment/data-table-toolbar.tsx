@@ -23,14 +23,14 @@ export function DataTableToolbar<TData>({
     <div className="flex items-center justify-between">
       <div className="flex flex-1 items-center space-x-2">
         <Input
-          placeholder="Filter invoice..."
-          value={(table.getColumn("invoice_id")?.getFilterValue() as string) ?? ""}
+          placeholder="Filter CV..."
+          value={(table.getColumn("id")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("invoice_id")?.setFilterValue(event.target.value)
+            table.getColumn("id")?.setFilterValue(event.target.value)
           }
           className="h-8 w-[150px] lg:w-[250px]"
         />
-        {table.getColumn("payment_status") && (
+        {/* {table.getColumn("payment_status") && (
           <DataTableFacetedFilter
             column={table.getColumn("payment_status")}
             title="Payment Status"
@@ -43,7 +43,7 @@ export function DataTableToolbar<TData>({
             title="Payment Method"
             options={payment_method}
           />
-        )}
+        )} */}
         {isFiltered && (
           <Button
             variant="ghost"
