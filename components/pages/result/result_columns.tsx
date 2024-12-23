@@ -1,5 +1,3 @@
-"use client";
-
 import { ColumnDef } from "@tanstack/react-table";
 import { payment_status } from "@/lib/data/data";
 import { Task } from "@/lib/data/schema";
@@ -7,7 +5,6 @@ import { DataTableColumnHeader } from "@/components/pages/payment/data-table-col
 import { DataTableRowActions } from "@/components/pages/payment/data-table-row-actions";
 import { Result } from "@/lib/data/results-schema";
 import { Link } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 function formatDate(dateStr: string): string {
   const date = new Date(dateStr);
@@ -73,20 +70,20 @@ export const result_columns: ColumnDef<Result>[] = [
   {
     id: "actions",
     cell: ({ row }) => {
-      const router = useRouter();
       const rowData = row.original;
-      const href = `/detail/${rowData.id}`; 
+      const href = `/detail/${rowData.id}`;
   
       return (
         <div className="flex space-x-2">
-          <button
-            onClick={() => router.push(href)}
+          <a
+            href={href}
             className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
           >
             View Details
-          </button>
+          </a>
         </div>
       );
     },
-  },
+  }
+  
 ];

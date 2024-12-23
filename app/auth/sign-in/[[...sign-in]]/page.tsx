@@ -9,7 +9,7 @@ export default function AuthSignInPage() {
       <section className="bg-backgroundl relative flex h-[700px] w-full flex-col items-center gap-y-8 overflow-hidden rounded-lg p-12">
         <div className="z-20 flex items-center justify-center">
           <BlurFade delay={0.75} inView>
-            <SignIn forceRedirectUrl="/dashboard" />
+            <SignIn forceRedirectUrl="/home" />
           </BlurFade>
         </div>
         <DotPattern
