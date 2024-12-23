@@ -112,7 +112,7 @@ export function AnalyzerUploader() {
                 </TooltipTrigger>
                 <TooltipContent side={"top"} className="bg-transparent">
                   <AnimatedGradientText>
-                    <p>Use 1 token for each resume</p>
+                    <p>Analyze your resume</p>
                   </AnimatedGradientText>
                 </TooltipContent>
               </Tooltip>

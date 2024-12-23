@@ -31,6 +31,7 @@ export default function AnalyzeResultResume({
     num_top_resume = num_resume;
   }
 
+
   return (
     <>
       <div className="flex w-full flex-row justify-between">

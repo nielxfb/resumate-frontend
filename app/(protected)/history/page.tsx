@@ -13,6 +13,31 @@ interface TransactionData {
   cvs: number;
 }
 
+const loadingContainerStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100vh',
+};
+
+const spinnerStyle = {
+  border: '4px solid #f3f3f3',
+  borderTop: '4px solid #3498db', 
+  borderRadius: '50%',
+  width: '50px',
+  height: '50px',
+  animation: 'spin 1.5s linear infinite',
+  marginBottom: '20px',
+};
+
+const styleSheet = document.styleSheets[0];
+styleSheet.insertRule(`
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`, styleSheet.cssRules.length);
 
 export default function AnalysisHistoryPage() {
   const [result, setResult] = useState<TransactionData[]>();
@@ -53,6 +78,14 @@ export default function AnalysisHistoryPage() {
     console.log(result);
   }, [result]);
   
+  if (!result) {
+    return (
+      <div style={loadingContainerStyle}>
+        <div style={spinnerStyle}></div>
+        <p>Loading...</p>
+      </div>
+    )
+  }
 
 
   return (

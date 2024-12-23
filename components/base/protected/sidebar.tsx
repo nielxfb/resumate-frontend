@@ -33,7 +33,7 @@ export function Sidebar() {
           asChild
         >
           <Link
-            href="/dashboard"
+            href="/home"
             className="flex select-none items-center gap-2 !no-underline"
           >
             <Icons.sroomarizer className="mr-1 size-10 h-6 w-6 fill-primary dark:fill-primary-foreground" />

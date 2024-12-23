@@ -14,7 +14,7 @@ export function DataTableRowActions<TData>({
 }: DataTableRowActionsProps<TData>) {
 
   return (
-    // <Link href={`/payments/${invoice_id}`}>
+    // <Link href={`/detail/${analysis_id}`}>
       <Button
         variant="ghost"
         className="flex h-auto w-auto border p-2 data-[state=open]:bg-muted"
