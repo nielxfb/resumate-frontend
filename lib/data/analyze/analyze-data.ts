@@ -9,6 +9,8 @@ export interface AnalyzeResultFeatures {
   educations: string[];
   gpa: string[];
   job_titles: string[];
+  name: string[];
+  phone: string[];
   years_experiences: {
     text: string[];
   }[] ;
