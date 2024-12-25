@@ -74,6 +74,7 @@ export default async function rateResumeAction({
         gpa: feature.gpa.join(";"),
         jobTitles: feature.job_titles.join(";"),
         yearsExperiences: feature.years_experiences.map((obj) => obj.text).join(";"),
+        rating: feature.rating,
         experiences: feature.experiences.join(";"),
         name: feature.name.join(";"),
         phone: feature.phone.join(";"),
