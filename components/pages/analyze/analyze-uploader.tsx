@@ -66,7 +66,7 @@ export function AnalyzerUploader() {
     // Prevent increased memory usage because large amount of text
     const noTextResumeData: AnalyzeFileData[] = resumeData.map((file) => ({
       fileName: file.fileName,
-      url: file.url,
+      url: file.url ?? "",
       text: "",
     }));
 

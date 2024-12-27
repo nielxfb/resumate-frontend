@@ -21,7 +21,7 @@ export function ResumeUploader({ handleResumeData }: ResumeUploaderProps) {
   const getResumeData = (arr_text: string[]) => {
     const resumeData: AnalyzeFileData[] = uploadedFiles.map((file, idx) => ({
       fileName: file.name,
-      url: file.url,
+      url: file.url ?? "",
       text: arr_text[idx],
     }));
 
