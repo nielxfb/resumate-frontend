@@ -67,6 +67,7 @@ export default function DetailPage() {
         const res = await response.json();
   
         // Check if the response data is valid
+        console.log(res)
         if (res && res.analysis && res.cvs && res.resumeFeatures) {
           const formattedData: AnalyzeResultProps = {
             results: [
@@ -76,8 +77,8 @@ export default function DetailPage() {
                 gpa: res.analysis.gpa_target,
                 job_titles: splitString(res.analysis.job_target),
                 languages: splitString(res.analysis.language_target),
-                name: "",
-                phone: "",
+                name: res.analysis.name,
+                phone: res.analysis.phone,
                 resume_idx: "",
                 skills: splitString(res.analysis.skill_target),
                 soft_skills: splitString(res.analysis.soft_skill_target),
@@ -90,9 +91,9 @@ export default function DetailPage() {
                   gpa: res.resumeFeatures[0].gpa,
                   job_titles: splitString(res.resumeFeatures[0].job),
                   languages: splitString(res.resumeFeatures[0].language),
-                  name: res.cvs[0].file_name,
-                  phone: "",
-                  rating: 1,
+                  name: res.resumeFeatures[0].name,
+                  phone: res.resumeFeatures[0].phone,
+                  rating: res.resumeFeatures[0].rating,
                   rating_details: {
                     educations: res.cvs[0].education_rating,
                     gpa: res.cvs[0].gpa_rating,

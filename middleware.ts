@@ -8,7 +8,13 @@ const isPublicRoute = createRouteMatcher([
   "/auth/sign-up(.*)",
 ]);
 
-export default clerkMiddleware((auth, request) => {
+export default clerkMiddleware((auth, request, event) => {
+  const { userId } = auth();
+
+  if (request.nextUrl.pathname === "/" && userId) {
+    return Response.redirect(new URL("/home", request.url));
+  }
+
   if (!isPublicRoute(request)) {
     auth().protect();
   }

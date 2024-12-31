@@ -69,7 +69,7 @@ export default function AnalysisHistoryPage() {
   useEffect(() => {
     console.log(result);
   }, [result]);
-
+  
   useEffect(() => {
     const styleSheet = document.styleSheets[0];
     styleSheet.insertRule(`
